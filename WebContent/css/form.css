@@ -67,7 +67,7 @@ a:hover {
   display: none;
 }
 
-h1 {
+h3, h1 {
   text-align: center;
   color: #ffffff;
   font-weight: 300;
@@ -119,6 +119,7 @@ input, textarea {
   -webkit-transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease;
 }
+
 input:focus, textarea:focus {
   outline: 0;
   border-color: #1ab188;

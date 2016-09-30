@@ -82,3 +82,30 @@ function performAjaxRegSend() {
 
 }
 
+
+function performAjaxPassChange() {
+//  This function is used to receive data from form and send it to the servlet LoginServlet
+
+//  Data of a form field is taken by its ID and saved in a parameter 
+  var username = document.getElementById("chusername").value;
+  var password = document.getElementById("chpassword").value;
+  
+  alert(username);
+      
+//  Ajax call, where the parameters are send to the Servlet
+  $.ajax({
+      url:'../ChangePassServlet',
+      data:{user:username, password:password},
+      type:'POST',
+      cache:false,
+      success:function(data){
+         alert(data);
+        window.location.replace("http://localhost:8080/Project_J_N" + data);
+      },
+      error:function(result){
+      	alert("er gaat alsnog iets mis")
+      	alert(result.status + ' ' + result.statusText);
+      }
+   });
+
+}

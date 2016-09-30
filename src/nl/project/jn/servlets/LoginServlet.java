@@ -73,8 +73,6 @@ public class LoginServlet extends HttpServlet {
                 } else{
                 	 //Sends the generated script to the website page
                 	href = "/html/user.jsp";
-                	
-                    
                 }
             }    
             
