@@ -23,26 +23,10 @@ public class UpdateMysqlTable extends MysqlDatabaseConnector{
         
         System.out.println(ps.toString());
         
-    
-        
-        //SQL query for retrieving data from "users_information" table to log in user
-//        String sqlStatement = "SELECT * FROM users_information where username='" + username + "';";
-//        Statement stm=(Statement) con.createStatement();
-////        executes the query
-//        ResultSet rs = stm.executeQuery(sqlStatement);
-//        
-//        String access = null;
-//        
-//        while (rs.next()) {
-//
-//           access = rs.getString("userAccess");
-//        }
-    }
+        }
         
         public void RegisterUser(String username, String name, String lastName, String email, String password) 
                 throws IOException, SQLException {
-            
-            
             
         //SQL query for adding data to "users_information" table 
         String sqlStatement = "INSERT into users_information (username, name, lastName, email, password) VALUES (?, ?, ?, ?, md5(?));";
@@ -62,8 +46,8 @@ public class UpdateMysqlTable extends MysqlDatabaseConnector{
 
 //      executes the query
         ps.executeUpdate();
-                      
+        
     }
     
-    
+        
 }

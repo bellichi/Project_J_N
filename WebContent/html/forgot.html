@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="author" content="Juliana Goh & Negar Ahmadifard">
+	<meta name="author" content="Negar Ahmadifard">
 	<title>Registration Form</title>
 	<link rel="stylesheet" href="../css/form.css">
         <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
@@ -16,27 +16,32 @@
       
           <h1>Change Password</h1>
           
-          <p class="header-mandatory">All fields with an * are mandatory.</p>
+          <p class="header-mandatory">All fields are mandatory.</p>
           
-          <form>
+          <form name="updateForm">
           <!-- registration form --> 
             <div class="field-wrap">
               <label>
                 Username<span class="req"></span>
               </label>
-              <input id="chusername" type="text" required autocomplete="off" title="Optional field" />
-            </div>  
-              
-            
+              <input name="chusername" id="chusername" type="text" autocomplete="off" title="Optional field" required="required" />
+            </div>             
           
           <div class="field-wrap">
             <label>
-              Set A New Password<span class="req">*</span>
+              Set A New Password<span class="req"></span>
             </label>
-            <input id="chpassword" type="password" required autocomplete="off" title="Mandatory field" />
+            <input name="chpassword" id="chpassword" type="password" autocomplete="off" title="Mandatory field" required="required" />
           </div>
           
-          <input type="submit" class="button button-block" onClick="performAjaxPassChange()" value="CHANGE PASSWORD">
+           <div class="field-wrap">
+            <label>
+              Confirm Password<span class="req"></span>
+            </label>
+            <input name="conpassword" id="conpassword" type="password" autocomplete="off" title="Mandatory field" required="required" />
+          </div>
+          
+          <input type="button" class="button button-block" onClick="validateUpdateForm()" value="CHANGE PASSWORD">
           
           </form>
 

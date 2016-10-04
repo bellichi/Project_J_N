@@ -15,6 +15,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author juulz
+ */
 public class RetrieveMysqlData extends MysqlDatabaseConnector{
     
      /**
@@ -31,6 +35,7 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
 
         //SQL query for retrieving data from "users_information" table to log in user
         String sqlStatement = "SELECT * FROM users_information WHERE username=? AND password=md5(?)";
+        
         
        System.out.println(username + "," + password);
         
@@ -52,15 +57,18 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
             u.setUsername(rs.getString("username"));
             u.setFirstName(rs.getString("name"));
             u.setLastName(rs.getString("lastName"));
-            u.setEmailAdress(rs.getString("email"));
+            u.setEmailAddress(rs.getString("email"));
             u.setUserAccess(rs.getString("userAccess"));
                 
         }
        
     }
     
-        
-        
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public static List<User> getAllUser() throws SQLException{
         
         //SQL query for retrieving data from "users_information" table to log in user
@@ -77,7 +85,7 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
             u.setUsername(rs.getString("username"));
             u.setFirstName(rs.getString("name"));
             u.setLastName(rs.getString("lastName"));
-            u.setEmailAdress(rs.getString("email"));
+            u.setEmailAddress(rs.getString("email"));
             u.setUserAccess(rs.getString("userAccess"));
             
             list.add(u);
@@ -87,5 +95,40 @@ public class RetrieveMysqlData extends MysqlDatabaseConnector{
         return list;
       
     }
+    
+    public boolean CheckUser(String username) throws IOException, SQLException {
+    	boolean usernameExists = true;
+    	
+    	String sqlExist = "SELECT * FROM users_information WHERE username=?";    
+        
+        PreparedStatement sqlu = con.prepareStatement(sqlExist);
+
+        sqlu.setString(1, username);
+        
+        ResultSet rs = sqlu.executeQuery();
+        
+        if(!rs.next()) { 
+        	usernameExists = false;
+        } 
+        return usernameExists;
+
+    }
+
+	public boolean CheckEmail(String email) throws IOException, SQLException {
+    	boolean emailExists = true;
+    	
+    	String sqlExist = "SELECT * FROM users_information WHERE email=?";    
+        
+        PreparedStatement sqle = con.prepareStatement(sqlExist);
+
+        sqle.setString(1, email);
+        
+        ResultSet rs = sqle.executeQuery();
+        
+        if(!rs.next()) { 
+        	emailExists = false;
+        } 
+        return emailExists;
+	}
     
 }

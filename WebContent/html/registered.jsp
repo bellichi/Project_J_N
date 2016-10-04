@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="author" content="Negar Ahmadifard">
+<meta name="author" content="Juliana Goh & Negar Ahmadifard">
 <link rel="stylesheet" href="http://localhost:8080/Project_J_N/css/form.css">
-<title>Password Changed</title>
+<title>Registration completed</title>
 </head>
 <body>
 <div class="form">
-	<h3>Your password has been succesfully changed. Please <a href="../html/form.html">click here</a> to return to the login page.</h3>
+	<h3>Your registration is completed. Please <a href="../html/form.html#login">click here</a> to return to the login page.</h3>
 </div>
 </body>
 </html>

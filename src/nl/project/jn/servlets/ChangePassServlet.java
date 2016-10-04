@@ -1,3 +1,11 @@
+/**
+ *
+ * Uitleg Class
+ * 
+ * 
+ * @author Juliana Goh & Negar Ahmadifard
+ */
+
 package nl.project.jn.servlets;
 
 import java.io.IOException;
@@ -14,7 +22,7 @@ import nl.project.jn.database.UpdateMysqlTable;
 
 
 /**
- * @author: Juliana Goh & Negar Ahmadifard
+ * @author: Negar
  */
 
 public class ChangePassServlet extends HttpServlet {
@@ -45,7 +53,7 @@ public class ChangePassServlet extends HttpServlet {
         try{
 //          connects with the database
             MysqlDatabaseConnector.connectDB();
-            if(username != null && !username.isEmpty() || password != null && !password.isEmpty()) {
+            if(username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
  //           if (username.equals(null)&&password.equals(null)||username.equals("")&&password.equals("")) {
             	
             	UpdateMysqlTable ch = new UpdateMysqlTable();
@@ -54,20 +62,24 @@ public class ChangePassServlet extends HttpServlet {
 
             	System.out.println("Password updated");
             	
-            	href="/changepass.jsp";
+            	href="/html/changepass.jsp";
 
             } else{
             	
-            	href="/html/changepass.jsp";
+            	href="/html/error.jsp";
             }
         	
             response.getWriter().write(href);
             
-//            disconnects the database
-            MysqlDatabaseConnector.disconnectDB();
+
+            
 
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(ChangePassServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+//        	disconnects the database
+            MysqlDatabaseConnector.disconnectDB();    
+            System.out.println("Database disconnected");
         }
     }
 
