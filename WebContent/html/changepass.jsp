@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="author" content="Negar Ahmadifard">
-<link rel="stylesheet" href="http://localhost:8080/Project_J_N/css/form.css">
+<link rel="stylesheet" href="../css/form.css">
 <title>Password Changed</title>
 </head>
 <body>
